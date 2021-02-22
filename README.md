@@ -2,6 +2,8 @@
 
 Enables calling PinballY functions from Wheel Icons (similar to [Pinup Popper](https://www.nailbuster.com/wikipinup/doku.php?id=start)).
 
+![Wheel Actions](wheel-actions.png)
+
 Based on a basic idea presented on the [PinballY User Community](https://www.facebook.com/groups/781499215682063/?multi_permalinks=1065515423947106&notif_id=1614013597614579&notif_t=feedback_reaction_generic&ref=notif). See [concept.md](concept.md) for more details of the original idea.
 
 **This is a proof of concept.** If you are here looking for a completed, working,
