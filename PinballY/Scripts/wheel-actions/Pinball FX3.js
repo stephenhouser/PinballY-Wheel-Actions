@@ -1,5 +1,4 @@
-//
+// Enable Pinball FX3 filter
 export function doAction() {
-    message('Hello there beautiful.');
     gameList.setCurFilter("Pinball FX3");
 }
