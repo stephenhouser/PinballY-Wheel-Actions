@@ -1,0 +1,2 @@
+
+mainWindow.doCommand(command.Quit);
