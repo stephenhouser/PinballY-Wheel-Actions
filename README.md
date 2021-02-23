@@ -65,3 +65,22 @@ The project consists of the following directories and files:
 
 * Media -- includes a stub `Wheel Actions\Wheel Images` directory to give the menu items some graphical flare. (Used some Pinup Popper images here). Again, the sample actions have icons for them.
 
+## Adding New Actions
+
+To add a new action;
+
+1. Create a new JavaScript file in the Wheel Actions table directory, `PinballY\Scripts\wheel-actions`. Give it the same (similar) name that you want it to show up as on your wheels.
+
+2. In that JavaScript file, create a single exported `doAction()` function. Here's a starter:
+
+```
+export function doAction() {
+    message('I'm a man of action!');
+}
+```
+
+3. Start PinballY and *configure* the new action. Show Unconfigured, Edit Game Details, make sure you give it a manufacturer and year. Optional: change the title to start with an underscore `_` so all actions will appear together at the start/end of each wheel.
+
+4. Drag and drop your icon/image for the Action.
+
+5. "Click it, click it real good."
