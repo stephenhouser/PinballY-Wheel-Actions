@@ -3,7 +3,11 @@ gameList.createMetaFilter({
     includeExcluded: true,
     priority: 100000,
     select: function(game, included) {
-        return included || game.system.displayName == 'Wheel Actions';
+        if (game && game.system) {
+            return included || game.system.displayName == 'Wheel Actions';
+        }
+        
+        return included;
     }
 });
 
