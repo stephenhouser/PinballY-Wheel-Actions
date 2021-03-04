@@ -36,7 +36,7 @@ mainWindow.on("command", ev => {
 });
 
 // Test if game is a Wheel Action
-function isWheelAction(game) {
+export function isWheelAction(game) {
     if (game && game.system) {
         if (game.system.displayName == WHEEL_ACTION_SYSTEM) {
             return true;

@@ -8,6 +8,15 @@
 		<year>2021</year>
 		<rating>0</rating>
 	</game>
+	<game name="Just Added">
+		<ipdbid></ipdbid>
+		<description>_Just Added (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
 	<game name="Adult">
 		<ipdbid></ipdbid>
 		<description>_Adult Tables (0xACE 2021)</description>
