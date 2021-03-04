@@ -8,6 +8,24 @@
 		<year>2021</year>
 		<rating>0</rating>
 	</game>
+	<game name="Adult">
+		<ipdbid></ipdbid>
+		<description>_Adult Tables (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
+	<game name="Attract Mode">
+		<ipdbid></ipdbid>
+		<description>_Attract Mode (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
 	<game name="Exit">
 		<ipdbid></ipdbid>
 		<description>_Exit (0xACE 2021)</description>
@@ -26,6 +44,24 @@
 		<year>2021</year>
 		<rating>0</rating>
 	</game>
+	<game name="Future Pinball">
+		<ipdbid></ipdbid>
+		<description>_Future Pinball (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
+	<game name="Visual Pinball">
+		<ipdbid></ipdbid>
+		<description>_Visual Pinball (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
 	<game name="Visual Pinball X">
 		<ipdbid></ipdbid>
 		<description>_Visual Pinball X (0xACE 2021)</description>
@@ -35,6 +71,15 @@
 		<year>2021</year>
 		<rating>0</rating>
 	</game>
+	<game name="Pinball FX2">
+		<ipdbid></ipdbid>
+		<description>_Pinball FX2 (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>	
 	<game name="Pinball FX3">
 		<ipdbid></ipdbid>
 		<description>_Pinball FX3 (0xACE 2021)</description>
