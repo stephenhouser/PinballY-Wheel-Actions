@@ -1,4 +1,5 @@
-// Enable Pinball FX3 filter
+//
 export function doAction() {
-    gameList.setCurFilter("Pinball FX3");
+    logfile.log('Wheel Actions: Set filter = System.Pinball FX3');
+    gameList.setCurFilter('System.Pinball FX3');
 }

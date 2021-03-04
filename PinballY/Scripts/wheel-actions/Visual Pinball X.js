@@ -1,4 +1,5 @@
-// Enable Visual Pinball X filter
+//
 export function doAction() {
-    gameList.setCurFilter("Visual Pinball X");
+    logfile.log('Wheel Actions: Set filter = System.Visual Pinball X');
+    gameList.setCurFilter('System.Visual Pinball X');
 }

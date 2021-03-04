@@ -1,4 +1,5 @@
-// Enable All Tables filter
+//
 export function doAction() {
-    gameList.setCurFilter("All");
+    logfile.log('Wheel Actions: Set filter = All');
+    gameList.setCurFilter('All');
 }

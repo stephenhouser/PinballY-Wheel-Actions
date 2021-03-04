@@ -1,4 +1,5 @@
-// Enable Favorites filter
+//
 export function doAction() {
-    gameList.setCurFilter("Favorites");
+    logfile.log('Wheel Actions: Set filter = Favorites');
+    gameList.setCurFilter('Favorites');
 }

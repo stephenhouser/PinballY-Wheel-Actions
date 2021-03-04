@@ -1,4 +1,5 @@
-// Exit PinballY
+//
 export function doAction() {
-	mainWindow.doCommand(command.Quit);
+	logfile.log('Wheel Action = Exit');
+    mainWindow.doCommand(command.Quit);
 }
