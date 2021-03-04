@@ -1,5 +1,6 @@
-//
+// Show All tables
+import {setWheelFilter} from '../wheel-actions.js';
+
 export function doAction() {
-    logfile.log('Wheel Actions: Set filter = All');
-    gameList.setCurFilter('All');
+    setWheelFilter('All');
 }

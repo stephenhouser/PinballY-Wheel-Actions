@@ -1,5 +1,6 @@
-//
+// Set filter to only Visual Pinball X tables
+import {setWheelFilter} from '../wheel-actions.js';
+
 export function doAction() {
-    logfile.log('Wheel Actions: Set filter = System.Visual Pinball X');
-    gameList.setCurFilter('System.Visual Pinball X');
+    setWheelFilter('System.Visual Pinball X');
 }

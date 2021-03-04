@@ -1,5 +1,6 @@
-//
+// Set filter to only Pinball FX3 tables
+import {setWheelFilter} from '../wheel-actions.js';
+
 export function doAction() {
-    logfile.log('Wheel Actions: Set filter = System.Pinball FX3');
-    gameList.setCurFilter('System.Pinball FX3');
+    setWheelFilter('System.Pinball FX3');
 }

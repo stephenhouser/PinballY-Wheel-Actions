@@ -1,18 +1,7 @@
 // The name given to the Wheel Action system in PinballY Options
 let WHEEL_ACTION_SYSTEM = 'Wheel Actions';
 
-// Test if game is a Wheel Action
-function isWheelAction(game) {
-    if (game && game.system) {
-        if (game.system.displayName == WHEEL_ACTION_SYSTEM) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-// Create widening filter to include Wheel Actions
+// Create widening filter to include Wheel Actions on wheel
 gameList.createMetaFilter({
     includeExcluded: true,
     priority: 100000,
@@ -20,15 +9,6 @@ gameList.createMetaFilter({
         return included || isWheelAction(game);
     }
 });
-
-// Dynamically load and execute a wheel action script
-function doWheelAction(game) {
-    let gameFile = game.resolveGameFile() || { };
-    import(gameFile.path)
-        .then((module) => {
-            module.doAction();
-        });
-}
 
 // Intercept opening of main menu and
 //  ... prevent showing menu if this is a Wheel Action
@@ -55,7 +35,54 @@ mainWindow.on("command", ev => {
     }
 });
 
+// Test if game is a Wheel Action
+function isWheelAction(game) {
+    if (game && game.system) {
+        if (game.system.displayName == WHEEL_ACTION_SYSTEM) {
+            return true;
+        }
+    }
 
+    return false;
+}
+
+// Dynamically load and execute a wheel action script
+function doWheelAction(game) {
+    let gameFile = game.resolveGameFile() || { };
+    import(gameFile.path)
+        .then((module) => {
+            // Happens asynchronously and regular error logging in PinballY
+            // will not catch errors in loaded module. Use a try/catch here
+            // to solve that and show any errors in the PinballY log.
+            try {
+                module.doAction();
+            } catch (error) {
+                logfile.log(error.stack);
+                throw error;
+            }
+        });
+}
+
+// Find filter's command number using it's friendly Id / Name
+function findFilterCmd(searchFilterId) {
+    let allFilters = gameList.getAllFilters();
+    let foundFilter = allFilters.find(filter => filter.id == searchFilterId);
+    return foundFilter ? foundFilter.cmd : undefined;
+}
+
+// Create our own set filter function so that we can set the filter
+// using mainWindow.doCommand() but with the filter's more friendly name.
+// Setting the filter with gameList.setCurFilter(id) will not trigger
+// the 'filterselect' event.
+export function setWheelFilter(filterId) {
+    let filterCmd = findFilterCmd(filterId);
+    if (filterCmd) {
+        logfile.log('Wheel Actions: Set filter = ' + filterId);
+        mainWindow.doCommand(filterCmd);
+    } else {
+        message('No tables match filter ' + filterId);
+    }
+}
 
 // Filters
 // [Script] NeverPlayed

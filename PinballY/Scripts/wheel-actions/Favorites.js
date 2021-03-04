@@ -1,5 +1,6 @@
-//
+// Show only favorite tables
+import {setWheelFilter} from '../wheel-actions.js';
+
 export function doAction() {
-    logfile.log('Wheel Actions: Set filter = Favorites');
-    gameList.setCurFilter('Favorites');
+    setWheelFilter('Favorites');
 }
