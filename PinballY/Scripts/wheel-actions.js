@@ -6,7 +6,7 @@ gameList.createMetaFilter({
     includeExcluded: true,
     priority: 100000,
     select: function(game, included) {
-        return included || isWheelAction(game);
+        return included || (isWheelAction(game) && !game.isHidden);
     }
 });
 
@@ -18,7 +18,8 @@ mainWindow.on("menuopen", ev => {
         let game = gameList.getWheelGame(0) || { };
         if (isWheelAction(game)) {
             doWheelAction(game);
-            ev.preventDefault();
+            ev.preventDefault(); // menu still pops up when other listeners
+            ev.stopImmediatePropagation();
         }
     }
 });
@@ -34,17 +35,6 @@ mainWindow.on("command", ev => {
         }
     }
 });
-
-// Test if game is a Wheel Action
-export function isWheelAction(game) {
-    if (game && game.system) {
-        if (game.system.displayName == WHEEL_ACTION_SYSTEM) {
-            return true;
-        }
-    }
-
-    return false;
-}
 
 // Dynamically load and execute a wheel action script
 function doWheelAction(game) {
@@ -82,6 +72,24 @@ export function setWheelFilter(filterId) {
     } else {
         message('No tables match filter ' + filterId);
     }
+}
+
+// Test if game is a Wheel Action
+export function isWheelAction(game) {
+    if (game && game.system) {
+        if (game.system.displayName == WHEEL_ACTION_SYSTEM) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+export function isActiveGame(game) {
+	return game 
+		&& !game.isHidden 
+		&& game.isConfigured 
+		&& !isWheelAction(game);
 }
 
 // Filters

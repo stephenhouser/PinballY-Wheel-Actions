@@ -1,22 +1,4 @@
 <menu>
-	<game name="All Tables">
-		<ipdbid></ipdbid>
-		<description>_All Tables (0xACE 2021)</description>
-		<type></type>
-		<rom></rom>
-		<manufacturer>0xACE</manufacturer>
-		<year>2021</year>
-		<rating>0</rating>
-	</game>
-	<game name="Just Added">
-		<ipdbid></ipdbid>
-		<description>_Just Added (0xACE 2021)</description>
-		<type></type>
-		<rom></rom>
-		<manufacturer>0xACE</manufacturer>
-		<year>2021</year>
-		<rating>0</rating>
-	</game>
 	<game name="Adult">
 		<ipdbid></ipdbid>
 		<description>_Adult Tables (0xACE 2021)</description>
@@ -25,6 +7,17 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
+		<enabled>False</enabled>
+	</game>
+	<game name="All Tables">
+		<ipdbid></ipdbid>
+		<description>_All Tables (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+		<enabled>True</enabled>
 	</game>
 	<game name="Attract Mode">
 		<ipdbid></ipdbid>
@@ -34,6 +27,7 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
+		<enabled>False</enabled>
 	</game>
 	<game name="Exit">
 		<ipdbid></ipdbid>
@@ -43,6 +37,7 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
+		<enabled>False</enabled>
 	</game>
 	<game name="Favorites">
 		<ipdbid></ipdbid>
@@ -61,19 +56,20 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
+		<enabled>False</enabled>
 	</game>
-	<game name="Visual Pinball">
+	<game name="Just Added">
 		<ipdbid></ipdbid>
-		<description>_Visual Pinball (0xACE 2021)</description>
+		<description>_Just Added (0xACE 2021)</description>
 		<type></type>
 		<rom></rom>
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
 	</game>
-	<game name="Visual Pinball X">
+	<game name="Most Played">
 		<ipdbid></ipdbid>
-		<description>_Visual Pinball X (0xACE 2021)</description>
+		<description>_Most Played (0xACE 2021)</description>
 		<type></type>
 		<rom></rom>
 		<manufacturer>0xACE</manufacturer>
@@ -88,7 +84,8 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
-	</game>	
+		<enabled>False</enabled>
+	</game>
 	<game name="Pinball FX3">
 		<ipdbid></ipdbid>
 		<description>_Pinball FX3 (0xACE 2021)</description>
@@ -97,6 +94,46 @@
 		<manufacturer>0xACE</manufacturer>
 		<year>2021</year>
 		<rating>0</rating>
+		<enabled>False</enabled>
+	</game>
+	<game name="Recently Played">
+		<ipdbid></ipdbid>
+		<description>_Recently Played (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+	</game>
+	<game name="The Pinball Arcade">
+		<ipdbid></ipdbid>
+		<description>_The Pinball Arcade (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+		<enabled>False</enabled>
+	</game>
+	<game name="Visual Pinball">
+		<ipdbid></ipdbid>
+		<description>_Visual Pinball (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+		<enabled>False</enabled>
+	</game>
+	<game name="Visual Pinball X">
+		<ipdbid></ipdbid>
+		<description>_Visual Pinball X (0xACE 2021)</description>
+		<type></type>
+		<rom></rom>
+		<manufacturer>0xACE</manufacturer>
+		<year>2021</year>
+		<rating>0</rating>
+		<enabled>False</enabled>
 	</game>
 </menu>
 
