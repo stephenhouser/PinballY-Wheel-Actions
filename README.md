@@ -1,75 +1,86 @@
-# PinballY Addons and Examples
+# PinballY Wheel Actions
 
-Welcome!  This repository was created as a place to collect and share
-extensions for [PinballY](http://mjrnet.org/pinscape/PinballY).
-PinballY is a game launcher program for people who enjoy virtual
-pinball on a PC, especially people who build dedicated "virtual pin
-cabs" (a video game PC built into a real pinball machine body).
+Enables calling PinballY functions from Wheel Icons (similar to [Pinup Popper](https://www.nailbuster.com/wikipinup/doku.php?id=start)).
 
-PinballY can be customized and extended via its built-in Javascript
-engine, so we expect that most of the items in this repository will be
-Javascript code.  PinballY's Javascript engine can also access native
-code via DLLs, so native code extensions are also welcome here.
+![Wheel Actions](wheel-actions.png)
 
-We expect that the collection here will be a mix of ready-to-use
-add-ons that you can just drop into your PinballY environment to add
-new features, and examples that you can use as starting points for
-your own customizations.  Javascript is such an approachable language
-that there needn't be a hard line between the two, though.  Anything
-that's presented here as an add-on can also serve as starting point
-for something more or something different that you have in mind.
+Based on a basic idea presented in the [PinballY User Community](https://www.facebook.com/groups/781499215682063/?multi_permalinks=1065515423947106&notif_id=1614013597614579&notif_t=feedback_reaction_generic&ref=notif). See [concept.md](concept.md) for more details of the original idea.
 
-## Index ##
-|script|description|difficulty of installation|
-|------|-----------|---------|
-|FLEXdmd|shows animated manufacturer images, stats, ...|easy|
-|command_example|How to add commands to the main menu (e.g. Table Setup)|very easy|
-|seamless-launch|overlay while table is loading|very easy|
-|seamless-launch-spinner|overlay while table is loading, with animation|very easy|
-|two-tables-one-wheel|choose alternate version of same table|easy - read the docu|
-|start_random_table|starts a random table from the current GameWheel| very easy|
-|additional_filters|adds several filters to the "filter by rating" menu| easy | 
-|show_instruction_card|shows the instruction card window while playing a table| medium |
-|auto_shutdown|shuts down your PC after 60 min "Attract Mode" / inactivity| very easy|
-|menu_submenu_batch_file| example script how to create own menu items and how to start a batch file| medium|
-|meta_filter| adds additional MetaFilters to narrow existing selection to additional criterias|very easy|
+**This is a proof of concept.** If you are here looking for a completed, working,
+drop-in solution, please move on. It's not there yet.
 
-**NOTE:** For the moment projects that are *linked* here are works-in-progress and may not be ready for general use. If you see one that looks like `wheel-actions @ 2cdb718` with the `@` symbol, that is a linked project. The projects that are directly included here, and listed above, are reasonably complete and are for general use.
+## Key Features
 
-## How to use Javascript in PinballY
+* Any PinballY function can be triggered from a Wheel item
+* Can trigger anything that can be written in JavaScript
+* Wheel items can be included on any wheel (using metafilters)
+* You can add your own JavaScript functions to add anything you can code.
 
-To use one of the Javascript files you find here in PinballY:
+Some Examples:
+    * Filter Sections; Categories, Favorites, Visual Pinball Y...
+    * Exit PinballY
+    * Terminate and Shut down the system
+    * Open Options
+    * Make all your dreams come true
 
-* Download the script's .js file(s) and place them in the **Scripts** folder within your main PinballY program folder
-* If you don't already have a file in your **Scripts** folder called **Main.js**, create one, using Notepad or any other plain-text editor you prefer
-* Open **Main.js** (from the **Scripts** folder) in Notepad or your preferred editor, and add a line like this: `import "xxx.js"` (replacing **xxx** with the actual name of the script file)
+## Setup
 
-If a particular add-on consists of multiple **.js** files, you might or
-might not have to add an `import` command for each one - it depends on
-how the add-on is designed.  Hopefully the code will include
-instructions explaining what to do in this case.
+To get the basic system setup and working.
 
-For full details on using Javascript in PinballY, see the **Javascript**
-section in the Help files that accompany the program.  You can
-also view the [PinballY help online](http://mjrnet.org/pinscape/downloads/PinballY/Help/PinballY.html).
+1. Backup your system. This is development code, not production ready. Don't blame me if something gets wacked on you. You were warned.
 
+2. Extract the included files into your `PinballY` directory. This should include; `Scripts\wheel-actions.js`, `Scripts\wheel-actions`, `Media\Wheel Actions`, and `Databases\Wheel Actions`.
 
-## Copyright and License
+3. Update your `main.js` to activate Wheel Actions:
 
-The items in this repository are copyrighted by their respective
-authors.  Unless otherwise stated for a particular folder or script,
-everything is released under the [MIT
-license](https://opensource.org/licenses/MIT).
+```
+// Wheel Actions
+import 'wheel-actions.js'
+```
 
+4. Configure a new "Wheel Actions" system in PinballY. 
+    1. Create a new system in "Options", as if you were adding a new Pinball System. The name **must be "Wheel Actions"** as it's hardcoded in the code at the moment.
+    2. Set the `Table Path` to your `...\PinballY\Scripts\wheel-actions` directory.
+    3. Set the `Default Extension` to `.js`
 
-## Collaborators welcome!
+5. Restart PinballY and enjoy.
 
-If you've created your own PinballY scripts that you'd like to include
-here, get in touch and we'd be happy to add you as a contributor so
-that you can check your code into a folder here.  We ask that code
-contributions be provided under an open-source license so that users
-can share and customize them; the default license unless you state
-otherwise (by placing a notice in a script file, for example) is the
-MIT License (see above).
+## Details Programmers Will Want to Know, e.g. The Big Idea
 
+To get PinballY to display a wheel icon, we create a system named "Wheel Actions" and associated "tables" in the appropriate table directory. These fake tables contain JavaScript code that we can then load and execute within PinballY's JavaScript engine. All the rest is patching things up so PinballY displays them how and where we want them to show up.
 
+* There's a *metafilter* to include the Wheel Actions on every wheel. This is done using a [Widening Filter](http://mjrnet.org/pinscape/downloads/PinballY/Help/MetaFilters.html).
+
+* The actions are named with a leading underscore (`_`) so they get sorted to the start/end of the regular wheel and stay together. If you are using icons for all your tables and actions, you rarely ever see the name.
+
+* Each action's JavaScript file exports a single `doAction()` function that will be called when the action is selected. NOTE: JavaScript side effect code will be run the first time the action is chosen and the JavaScript code is loaded. Side Effects are typically bad things.
+
+## What's Where
+
+The project consists of the following directories and files:
+
+* Scripts -- includes `wheel-actions.js` and the directory `wheel-actions` where the JavaScript for each *action* will be programmed. There are some samples there now.
+
+* Databases -- includes a stub database for the `Wheel Actions` system. You could easily rebuild this yourself, I've just pre-configured the sample actions.
+
+* Media -- includes a stub `Wheel Actions\Wheel Images` directory to give the menu items some graphical flare. (Used some Pinup Popper images here). Again, the sample actions have icons for them.
+
+## Adding New Actions
+
+To add a new action;
+
+1. Create a new JavaScript file in the Wheel Actions table directory, `PinballY\Scripts\wheel-actions`. Give it the same (similar) name that you want it to show up as on your wheels.
+
+2. In that JavaScript file, create a single exported `doAction()` function. Here's a starter:
+
+```
+export function doAction() {
+    message('I'm a man of action!');
+}
+```
+
+3. Start PinballY and *configure* the new action. Show Unconfigured, Edit Game Details, make sure you give it a manufacturer and year. Optional: change the title to start with an underscore `_` so all actions will appear together at the start/end of each wheel.
+
+4. Drag and drop your icon/image for the Action.
+
+5. "Click it, click it real good."
